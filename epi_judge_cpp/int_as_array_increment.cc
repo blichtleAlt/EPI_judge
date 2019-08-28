@@ -3,7 +3,22 @@
 using std::vector;
 vector<int> PlusOne(vector<int> A) {
   // TODO - you fill in here.
-  return {};
+  for(int i = A.size() - 1; i >= 0; --i){
+    if(A[i] != 9){
+      ++A[i];
+      return A; 
+    }
+    else{
+      if(i == 0){
+        vector<int> temp(A.size() + 1, 0);
+        temp[0] = 1;
+        return temp;
+      }
+
+      A[i] = 0;
+    }
+  }
+  return A;
 }
 
 int main(int argc, char* argv[]) {
