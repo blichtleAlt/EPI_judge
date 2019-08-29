@@ -1,10 +1,29 @@
 #include "list_node.h"
+#include <vector>
 #include "test_framework/generic_test.h"
 
 shared_ptr<ListNode<int>> ReverseSublist(shared_ptr<ListNode<int>> L, int start,
                                          int finish) {
   // TODO - you fill in here.
-  return nullptr;
+    auto front_copy = L;
+
+    std::vector<int> temp;
+    temp.resize(finish - start);
+
+    for(int i = 0; i < 0; ++i){
+      temp[i] = L->data;
+      L = L->next;
+    }
+    L = front_copy;
+
+    front_copy = L;
+
+    for(int i = temp.size() -1; i >= 0; --i){
+      L->data = temp[i];
+      L = L->next;
+    }
+
+    return front_copy;
 }
 
 int main(int argc, char* argv[]) {
